@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
     private bool isFacingRight = true;
     private int jumpCount;
-    Sprite idleSprite;
 
     public bool IsFacingRight { get => isFacingRight; set => isFacingRight = value; }
 

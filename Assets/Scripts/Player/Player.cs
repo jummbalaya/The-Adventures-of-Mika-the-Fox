@@ -12,8 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] private int maxStamina = 100;
     [SerializeField] private int mana = 100;
     [SerializeField] private int maxMana = 100;
-    [SerializeField] private int level = 1;
-    [SerializeField] private int experience = 0;
+    [SerializeField] private int jemsCollected = 0;
+
+    private Vector3 playerStartingPosition;
 
     public int Health { get => health; set => health = value; }
     public int MaxHealth { get => maxHealth; set => maxHealth = value; }
@@ -21,6 +22,8 @@ public class Player : MonoBehaviour
     public int MaxStamina { get => maxStamina; set => maxStamina = value; }
     public int Mana { get => mana; set => mana = value; }
     public int MaxMana { get => maxMana; set => maxMana = value; }
+    public Vector3 PlayerStartingPosition { get => playerStartingPosition; set => playerStartingPosition = value; }
+    public int JemsCollected { get => jemsCollected; set => jemsCollected = value; }
 
     private void Awake()
     {
@@ -33,5 +36,9 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void Start()
+    {
+        PlayerStartingPosition = transform.position;
     }
 }

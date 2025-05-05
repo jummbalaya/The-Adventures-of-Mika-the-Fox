@@ -3,8 +3,10 @@ using UnityEngine;
 public class CheckpointController : MonoBehaviour
 {
     public static CheckpointController Instance { get; private set; }
+
     private Checkpoint[] checkpoints;
     private Checkpoint currentCheckpoint;
+    public Checkpoint CurrentCheckpoint { get => currentCheckpoint; set => currentCheckpoint = value; }
 
     private void Awake()
     {
@@ -23,21 +25,13 @@ public class CheckpointController : MonoBehaviour
     }
     public void SetCurrentCheckpoint(Checkpoint checkpoint)
     {
-        if (currentCheckpoint != null)
+        if (CurrentCheckpoint != null)
         {
-            currentCheckpoint.DeactivateCheckpoint();
+            CurrentCheckpoint.DeactivateCheckpoint();
         }
-        currentCheckpoint = checkpoint;
+        CurrentCheckpoint = checkpoint;
     }
     
-    public void RespawnPlayer(Transform playerTransform)
-    {
-        if (currentCheckpoint != null)
-        {
-            playerTransform.position = currentCheckpoint.transform.position;
-        }
-    }
-
     public void ResetCheckpoints()
     {
         foreach (var checkpoint in checkpoints)

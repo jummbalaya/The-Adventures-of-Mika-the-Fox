@@ -7,7 +7,9 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private Sprite cpOff;
     
     private SpriteRenderer spriteRenderer;
-    private bool isActive = false;
+    private bool isActive;
+
+    public bool IsActive { get => isActive; set => isActive = value; }
 
     void Start()
     {
@@ -26,12 +28,12 @@ public class Checkpoint : MonoBehaviour
     private void ActivateCheckpoint()
     {
         spriteRenderer.sprite = cpOn;
-        isActive = true;
+        IsActive = true;
     }
 
     public void DeactivateCheckpoint()
     {
         spriteRenderer.sprite = cpOff;
-        isActive = false;
+        IsActive = false;
     }
 }

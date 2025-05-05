@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class PlayerStatsUI : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Slider staminaSlider;
     [SerializeField] private Slider manaSlider;
+    [SerializeField] private TextMeshProUGUI jemsCountText;
 
     void Start()
     {
@@ -18,6 +20,7 @@ public class PlayerStatsUI : MonoBehaviour
     void Update()
     {
         UpdateSliders();
+        jemsCountText.text = Player.Instance.JemsCollected.ToString();
     }
 
     private void SetSlidersValues()
